@@ -10,6 +10,7 @@ cloud providers by providing corresponding adapters in the configuration.
 * [DigitalOcean Spaces](#digitalocean-spaces)
 * [Scaleway Object Storage](#scaleway-object-storage)
 * [Google Cloud Storage](#google-cloud-storage)
+* [Cloudflare R2](#cloudflare-r2)
 
 ## Azure
 
@@ -155,6 +156,32 @@ flysystem:
             options:
                 client: 'scaleway_spaces_client'
                 bucket: '%env(SCALEWAY_SPACES_BUCKET)%'
+```
+
+## Cloudflare R2
+
+The Cloudflare R2 is compatible with the AWS S3 API, meaning that you can use the same configuration
+as for a AWS storage. For example:
+
+```yaml
+# config/packages/flysystem.yaml
+
+services:
+    cloudflare_r2_client:
+        class: 'AsyncAws\S3\S3Client'
+        arguments:
+            -   
+                endpoint: '%env(CLOUDFLARE_R2_ENDPOINT)%'
+                accessKeyId: '%env(CLOUDFLARE_R2_ID)%'
+                accessKeySecret: '%env(CLOUDFLARE_R2_SECRET)%'
+
+flysystem:
+    storages:
+        cdn.storage:
+            adapter: 'asyncaws'
+            options:
+                client: 'cloudflare_r2_client'
+                bucket: '%env(CLOUDFLARE_R2_BUCKET)%'
 ```
 
 ## Next
