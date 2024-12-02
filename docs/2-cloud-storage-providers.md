@@ -117,9 +117,10 @@ services:
     digitalocean_spaces_client:
         class: 'AsyncAws\S3\S3Client'
         arguments:
-            -  endpoint: '%env(DIGITALOCEAN_SPACES_ENDPOINT)%'
-               accessKeyId: '%env(DIGITALOCEAN_SPACES_ID)%'
-               accessKeySecret: '%env(DIGITALOCEAN_SPACES_SECRET)%'
+            -
+                endpoint: '%env(DIGITALOCEAN_SPACES_ENDPOINT)%'
+                accessKeyId: '%env(DIGITALOCEAN_SPACES_ID)%'
+                accessKeySecret: '%env(DIGITALOCEAN_SPACES_SECRET)%'
 
 flysystem:
     storages:
@@ -142,9 +143,10 @@ services:
     scaleway_spaces_client:
         class: 'AsyncAws\S3\S3Client'
         arguments:
-            -  endpoint: '%env(SCALEWAY_SPACES_ENDPOINT)%'
-               accessKeyId: '%env(SCALEWAY_SPACES_ID)%'
-               accessKeySecret: '%env(SCALEWAY_SPACES_SECRET)%'
+            -   
+                endpoint: '%env(SCALEWAY_SPACES_ENDPOINT)%'
+                accessKeyId: '%env(SCALEWAY_SPACES_ID)%'
+                accessKeySecret: '%env(SCALEWAY_SPACES_SECRET)%'
 
 flysystem:
     storages:
